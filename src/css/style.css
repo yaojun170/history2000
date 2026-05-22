@@ -455,3 +455,282 @@ header {
     width: 180px;
   }
 }
+
+/* ==========================================
+   纪年史记 (Annual Annals) 核心样式系统
+   ========================================== */
+
+.hidden {
+  display: none !important;
+}
+
+/* 顶部栏视图选择器 */
+.view-selector {
+  display: flex;
+  background: rgba(44, 37, 30, 0.05);
+  padding: 4px;
+  border-radius: 20px;
+  border: 1px solid rgba(44, 37, 30, 0.08);
+  margin: 0 20px;
+}
+
+.view-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-size: 13px;
+  padding: 6px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  outline: none;
+  font-weight: 500;
+}
+
+.view-tab-btn:hover {
+  color: var(--text-charcoal);
+}
+
+.view-tab-btn.active {
+  background: var(--bg-card);
+  color: var(--accent-theme);
+  box-shadow: 0 2px 8px rgba(44, 37, 30, 0.08);
+  font-weight: 700;
+}
+
+/* 纪年页面排版 */
+#annual-view-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 300px;
+  gap: 30px;
+  align-items: start;
+}
+
+/* 左侧选择面板 */
+.annual-selector-panel {
+  background: var(--bg-card);
+  border: 1px solid rgba(44, 37, 30, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 8px 30px rgba(44, 37, 30, 0.02);
+}
+
+.panel-label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.year-search-block, .year-slider-block {
+  margin-bottom: 28px;
+}
+
+.year-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.year-step-btn {
+  background: var(--bg-parchment);
+  border: 1px solid rgba(44, 37, 30, 0.1);
+  color: var(--text-charcoal);
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-family: var(--font-serif);
+}
+
+.year-step-btn:hover {
+  background: var(--accent-theme);
+  color: var(--bg-parchment);
+  border-color: var(--accent-theme);
+}
+
+.year-num-input {
+  flex-grow: 1;
+  background: var(--bg-parchment);
+  border: 1px solid rgba(44, 37, 30, 0.1);
+  color: var(--text-charcoal);
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+  font-family: var(--font-sans);
+  outline: none;
+  width: 80px;
+}
+
+.year-num-input:focus {
+  border-color: var(--accent-theme);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.year-range-slider {
+  width: 100%;
+  accent-color: var(--accent-theme);
+  height: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: rgba(44, 37, 30, 0.1);
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.quick-centuries .century-btns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.quick-title {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  font-weight: 700;
+  border-left: 2px solid var(--accent-theme);
+  padding-left: 6px;
+}
+
+.century-btn {
+  background: var(--bg-parchment);
+  border: 1px solid rgba(44, 37, 30, 0.08);
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 6px 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-family: var(--font-serif);
+  text-align: center;
+}
+
+.century-btn:hover, .century-btn.active {
+  background: var(--accent-theme);
+  color: var(--bg-parchment);
+  border-color: var(--accent-theme);
+  font-weight: 700;
+}
+
+/* 中间对照面板 */
+.annual-compare-main {
+  flex-grow: 1;
+}
+
+/* 中华大事记精细编年大卡片样式 */
+.single-col-layout {
+  flex-grow: 1;
+  max-width: 880px;
+}
+
+.annual-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* 逐年具体历史事件行卡片 */
+.annual-event-row {
+  background: #fdfdfb;
+  border: 1px solid rgba(44, 37, 30, 0.05);
+  border-radius: 8px;
+  padding: 18px 24px;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.annual-event-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-theme);
+  border-radius: 8px 0 0 8px;
+}
+
+.event-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.event-row-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-charcoal);
+}
+
+/* 精致的国风历史标签 */
+.event-row-tag {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  transition: var(--transition-color);
+}
+
+/* 各类型标签配色规范 */
+.tag-regime { background: rgba(178, 88, 75, 0.1); color: #b2584b; } /* 战役/政权更迭 (乱世) */
+.tag-battle { background: rgba(178, 88, 75, 0.15); color: #b2584b; }
+.tag-livelihood { background: rgba(194, 139, 88, 0.1); color: #c28b58; } /* 民生/历法/建筑 (平缓) */
+.tag-calendar { background: rgba(194, 139, 88, 0.12); color: #c28b58; }
+.tag-poetry { background: rgba(93, 139, 128, 0.1); color: #5d8b80; }
+.tag-architecture { background: rgba(194, 139, 88, 0.15); color: #c28b58; }
+.tag-influx { background: rgba(124, 101, 141, 0.1); color: #7c658d; }
+.tag-technology { background: rgba(68, 107, 133, 0.1); color: #446b85; } /* 科技/贸易/典籍 (盛世) */
+.tag-exam { background: rgba(68, 107, 133, 0.15); color: #446b85; }
+.tag-trade { background: rgba(206, 155, 76, 0.1); color: #ce9b4c; }
+.tag-diplomacy { background: rgba(206, 155, 76, 0.15); color: #ce9b4c; }
+.tag-classics { background: rgba(93, 139, 128, 0.15); color: #5d8b80; }
+
+.event-row-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   响应式样式适配 (纪年史记移动端)
+   ========================================== */
+@media (max-width: 992px) {
+  #annual-view-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .annual-selector-panel {
+    position: static;
+    width: 100%;
+  }
+
+  .single-col-layout {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
