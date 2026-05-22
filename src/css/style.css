@@ -502,7 +502,7 @@ header {
 /* 纪年页面排版 */
 #annual-view-container {
   display: grid;
-  grid-template-columns: 260px 1fr 300px;
+  grid-template-columns: 260px 1fr;
   gap: 30px;
   align-items: start;
 }
@@ -733,4 +733,35 @@ header {
     max-width: 100%;
   }
 }
+
+/* ==========================================
+   重大事件 (Major Event) 朝代特有强调色高亮样式
+   ========================================== */
+.annual-event-row.major-event {
+  border-color: color-mix(in srgb, var(--accent-theme) 25%, transparent) !important;
+  background: linear-gradient(135deg, #fdfdfb 0%, var(--accent-glow) 100%) !important;
+  box-shadow: 0 6px 20px var(--accent-glow), 0 1px 3px rgba(44, 37, 30, 0.04) !important;
+}
+
+.annual-event-row.major-event::before {
+  background: var(--accent-theme) !important;
+  width: 6px !important;
+}
+
+.major-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-theme);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 6px var(--accent-glow);
+  vertical-align: middle;
+}
+
 

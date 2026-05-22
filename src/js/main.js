@@ -47,6 +47,22 @@ const CATEGORY_NAMES = {
   classics: '典籍编撰'
 };
 
+// 中文分类到英文样式名的反向映射 (支持数据直接汉化)
+const CATEGORY_TO_CLASS = {
+  '政权更迭': 'regime',
+  '军事战役': 'battle',
+  '社会民生': 'livelihood',
+  '历法天象': 'calendar',
+  '诗词文学': 'poetry',
+  '古建工程': 'architecture',
+  '文化交流': 'influx',
+  '科技发明': 'technology',
+  '科举儒典': 'exam',
+  '商业贸易': 'trade',
+  '外交朝贡': 'diplomacy',
+  '典籍编撰': 'classics'
+};
+
 /**
  * 初始化应用
  */
@@ -417,14 +433,16 @@ function renderAnnualEvents(year, centuryData) {
   if (yearEntry && yearEntry.events && yearEntry.events.length > 0) {
     yearEntry.events.forEach(event => {
       const eventRow = document.createElement('div');
-      eventRow.className = 'annual-event-row';
+      eventRow.className = 'annual-event-row' + (event.isMajor ? ' major-event' : '');
       
-      const tagClass = `tag-${event.category}`;
-      const tagLabel = CATEGORY_NAMES[event.category] || event.category;
+      const englishCategory = CATEGORY_TO_CLASS[event.category] || event.category;
+      const tagClass = `tag-${englishCategory}`;
+      const tagLabel = CATEGORY_TO_CLASS[event.category] ? event.category : (CATEGORY_NAMES[event.category] || event.category);
+      const majorBadgeHtml = event.isMajor ? `<span class="major-badge">★ 重大事件</span>` : '';
 
       eventRow.innerHTML = `
         <div class="event-row-header">
-          <h3 class="event-row-title">${event.title}</h3>
+          <h3 class="event-row-title">${majorBadgeHtml}${event.title}</h3>
           <span class="event-row-tag ${tagClass}">${tagLabel}</span>
         </div>
         <p class="event-row-desc">${event.desc}</p>
