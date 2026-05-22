@@ -1,13 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>history2000</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中华编年长卷 - 全方位历史时间轴</title>
+  <meta name="description" content="全方位展示中华历史变迁的交互式国风时间轴。以朝代更替与并立政权为主线，带您领略宏大史诗。">
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+  <!-- 极简国风悬浮顶部栏 -->
+  <header>
+    <div class="header-logo">
+      <div class="header-seal" id="app-seal">史</div>
+      <h1 class="header-title">中华编年长卷</h1>
+    </div>
+    
+    <!-- 检索容器 -->
+    <div class="search-container">
+      <svg class="search-icon" viewBox="0 0 24 24">
+        <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+      </svg>
+      <input type="text" id="search-bar" class="search-input" placeholder="输入朝代/事件进行检索...">
+    </div>
+  </header>
+
+  <!-- 应用主体交互容器 -->
+  <div class="app-container">
+    <!-- 左侧主轴索盘 -->
+    <aside class="axis-elevator">
+      <h2 class="axis-header">史册索盘</h2>
+      <div class="axis-nodes-container" id="axis-nav-container">
+        <div class="axis-nodes-line"></div>
+        <!-- 动态渲染生成朝代电梯节点 -->
+      </div>
+    </aside>
+
+    <!-- 右侧大事记长卷 -->
+    <main class="chronicle-stream" id="chronicle-stream-container">
+      <!-- 动态渲染生成朝代大事记大卡片 -->
+    </main>
+  </div>
+
+  <!-- 挂载入口 JS 模块 -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
 </html>
