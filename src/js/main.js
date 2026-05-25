@@ -69,7 +69,7 @@ const CATEGORY_TO_CLASS = {
 async function initApp() {
   try {
     // 1. 加载历史朝代数据
-    const historyRes = await fetch('./src/data/history-timeline.json');
+    const historyRes = await fetch('./data/history-timeline.json');
 
     if (!historyRes.ok) {
       throw new Error('Failed to load historical raw data.');
@@ -397,7 +397,7 @@ async function syncAnnualYear(year) {
     if (centuryCache[century]) {
       centuryData = centuryCache[century];
     } else {
-      const res = await fetch(`./src/data/timeline/century-${century}.json`);
+      const res = await fetch(`./data/timeline/century-${century}.json`);
       if (!res.ok) throw new Error(`无法载入第 ${century} 世纪史料`);
       centuryData = await res.json();
       centuryCache[century] = centuryData;
