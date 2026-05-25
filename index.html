@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中华编年长卷 - 全方位历史时间轴</title>
   <meta name="description" content="全方位展示中华历史变迁的交互式国风时间轴。以朝代更替与并立政权为主线，带您领略宏大史诗。">
+  
+  <!-- 预连接极速字体镜像服务，消除 DNS/TCP 握手延迟 -->
+  <link rel="preconnect" href="https://fonts.loli.net">
+  <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+  
+  <!-- 并行无阻塞引入中英文字体，开启 display=swap 避免白屏或隐形字符 -->
+  <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- 预加载首屏必需核心 JSON 数据，彻底粉碎请求瀑布流 -->
+  <link rel="preload" href="./data/history-timeline.json" as="fetch" crossorigin>
+  <link rel="preload" href="./data/timeline/century-1.json" as="fetch" crossorigin>
+  
   <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>

@@ -482,3 +482,19 @@ function getDynastyByYear(year) {
 
 // 挂载主入口
 window.addEventListener('DOMContentLoaded', initApp);
+
+// 注册 Service Worker 离线与极速缓存引擎 (动态适应 GitHub Pages 路径和本地开发路径)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    // 动态获取 Vite 中的基础路径 BASE_URL 规范，防止部署子目录路径时失效
+    const base = import.meta.env.BASE_URL || './';
+    navigator.serviceWorker.register(`${base}sw.js`)
+      .then((reg) => {
+        console.log('[Service Worker] Registered successfully with scope:', reg.scope);
+      })
+      .catch((err) => {
+        console.error('[Service Worker] Registration failed:', err);
+      });
+  });
+}
+
